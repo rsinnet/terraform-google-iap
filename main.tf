@@ -44,7 +44,10 @@ module "data_nonsensitive" {
 locals {
   client_names = flatten([
     for b in local.brand_names :
-    module.data_nonsensitive[b].object_nonsensitive[*].name
+    [
+      for name in module.data_nonsensitive[b].object_nonsensitive[*].name :
+      regex("identityAwareProxyClients/(.*)$", name)
+    ]
   ])
 }
 
@@ -59,7 +62,7 @@ locals {
     for b in local.brand_names : [
       for c in module.clients[b].object : [
         {
-          key   = c.name
+          key   = regex("identityAwareProxyClients/(.*)$", c.name)[0]
           value = c
         }
       ]
