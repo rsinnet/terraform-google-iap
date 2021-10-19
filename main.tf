@@ -6,11 +6,11 @@ terraform {
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = "~> 3.87.0"
+      version = ">= 3.87.0"
     }
     shell = {
       source  = "scottwinkler/shell"
-      version = "~> 1.7.7"
+      version = ">= 1.7.7"
     }
   }
 }
