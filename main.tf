@@ -15,11 +15,6 @@ terraform {
   }
 }
 
-provider "shell" {
-  interpreter        = ["/bin/bash", "-c"]
-  enable_parallelism = false
-}
-
 locals {
   remove_secrets = "jq -r 'del(.[][\"secret\"])'"
   gcloud         = "gcloud alpha iap --format=json --project=${var.project_id}"
