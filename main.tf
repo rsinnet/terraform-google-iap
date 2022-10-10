@@ -2,11 +2,11 @@
  * Access IAP brand and client information.
  */
 terraform {
-  required_version = ">= 0.14"
+  required_version = ">= 1.3"
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = ">= 3.87.0"
+      version = ">= 4.39.0"
     }
     shell = {
       source  = "scottwinkler/shell"
